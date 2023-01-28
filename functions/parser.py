@@ -24,19 +24,19 @@ def readerror(source,mode,xlen=1,ylen=1):
         reader = csv.reader(file,delimiter=',')
         
         if mode=='multi':
-            x=reader[0]
-            y=reader[1]
+            x=reader[1]
+            y=reader[0]
             
             if len(x)<4:
                 ex=[]
                 for i in range(xlen):
-                    ex.append(reader[0][1])
+                    ex.append(reader[1][1])
             else:
                 ex=x
             if len(y)<4:
                 why=[]
                 for j in range(ylen):
-                    why.append(reader[1][1])
+                    why.append(reader[0][1])
             else:
                 why=y
                 
@@ -45,9 +45,9 @@ def readerror(source,mode,xlen=1,ylen=1):
         else:
             x,y=[],[]
             for i in range(xlen):
-                x.append(reader[0][1])
+                x.append(reader[1][1])
             for j in range(ylen):
-                y.append(reader[1][1])
+                y.append(reader[0][1])
             return x,y  
                 
 
