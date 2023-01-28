@@ -13,13 +13,13 @@ from functions.math import *
 from functions.parser import *
 
 def handler():
-    x,y,xerr,yerr=[],[],[],[]
+    x,y=[],[]
     dictionary=readfile('target/data.csv') #source
     x=list(dictionary.keys())
     for i in x:
         y.append(stats(dictionary[i])[0])
     
-    readerror('target/error.csv','single',xlen=1,ylen=1) #source
+    xerr,yerr=readerror('target/error.csv','single',xlen=len(x),ylen=len(y)) #source
 
 def main(x,y,xerr,yerr):
     xs,ys=linearise_function(x,y)
