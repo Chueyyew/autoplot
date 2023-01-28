@@ -12,6 +12,15 @@ from functions.linearise import *
 from functions.math import *
 from functions.parser import *
 
+def handler():
+    x,y,xerr,yerr=[],[],[],[]
+    dictionary=readfile(data.csv) #source
+    x=list(dictionary.keys())
+    for i in x:
+        y.append(stats(dictionary[i])[0])
+    
+    readerror(source,mode,xlen=1,ylen=1)
+
 def main(x,y,xerr,yerr):
     xs,ys=linearise_function(x,y)
     xerr,yerr=propogate_error(xs,xerr,ys,yerr)
