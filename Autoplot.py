@@ -20,6 +20,8 @@ def handler():
         y.append(stats(dictionary[i])[0])
     
     xerr,yerr=readerror('target/error.csv','single',xlen=len(x),ylen=len(y)) #source
+    
+    return x,y,xerr,yerr
 
 def main(x,y,xerr,yerr):
     xs,ys=linearise_function(x,y)
@@ -36,5 +38,5 @@ def main(x,y,xerr,yerr):
     return
 
 if __name__ == '__main__':
-    x,y,xerr,yerr=points()
+    x,y,xerr,yerr=handler()
     main(x,y,xerr,yerr)
