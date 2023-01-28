@@ -16,6 +16,26 @@ def readfile(source):
     
     return ndict
 
+def readerror(source,mode,xlen=1,ylen=1):
+    
+    with open(source,newline='') as file:
+        reader = csv.reader(file,delimiter=',')
+        
+        if mode=='multi':
+            x=reader[0]
+            y=reader[1]
+            
+            return x[1:-1],y[1:-1]
+        else:
+            x,y=[],[]
+            for i in range(xlen):
+                x.append(reader[0][1])
+            for j in range(ylen):
+                y.append(reader[1][1])
+            return x,y
+                
+                
+
 def points():
     a = int(input('Number of Points: ')) #Establishing the number of data points overall
     b = int(input('Number of X readings: ')) #Entering the various X values, factoring multiple readings

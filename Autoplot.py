@@ -7,6 +7,10 @@ import pandas as pd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
+#custom functions
+from functions import *
+from target import *
+
 def plot(x,y,xerr,yerr):
     fig,ax=plt.subplots()
     a, b = np.polyfit(x, y, 1)
