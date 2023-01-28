@@ -25,7 +25,21 @@ def readerror(source,mode,xlen=1,ylen=1):
             x=reader[0]
             y=reader[1]
             
-            return x[1:-1],y[1:-1]
+            if len(x)<4:
+                ex=[]
+                for i in range(xlen):
+                    ex.append(reader[0][1])
+            else:
+                ex=x
+            if len(y)<4:
+                why=[]
+                for j in range(ylen):
+                    why.append(reader[1][1])
+            else:
+                why=y
+                
+            
+            return ex[1:-1],why[1:-1]
         else:
             x,y=[],[]
             for i in range(xlen):
