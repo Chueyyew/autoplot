@@ -44,4 +44,4 @@ def plot(x,y,xerr,yerr):
     ax.set_ylabel('Amplitude of Wave, A (V)')
     ax.tick_params(axis='both',direction='inout')
     
-    plt.savefig('Graph1',dpi=500)
+    plt.savefig('Graph10',dpi=500)
