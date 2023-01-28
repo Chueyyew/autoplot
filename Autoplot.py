@@ -8,8 +8,10 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 
 #custom functions
-from functions import *
-from target import *
+from functions.linearise import *
+from functions.math import *
+from functions.parser import *
+
 
 def plot(x,y,xerr,yerr):
     fig,ax=plt.subplots()
