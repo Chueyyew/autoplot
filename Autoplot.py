@@ -17,16 +17,16 @@ def handler():
     dictionary=readfile('target/data.csv') #source
     x=list(dictionary.keys())
     for i in x:
-        y.append(stats(dictionary[i])[0])
+        y.append(stats(list(map(float,dictionary[i])))[0])
     
     xerr,yerr=readerror('target/error.csv','single',xlen=len(x),ylen=len(y)) #source
     
-    return x,y,xerr,yerr
+    return list(map(float,x)),y,list(map(float,xerr)),list(map(float,yerr))
 
 def main(x,y,xerr,yerr):
     xs,ys=linearise_function(x,y)
     xerr,yerr=propogate_error(xs,xerr,ys,yerr)
-    
+
     m,c,sdm,sdc=graphing_stats(xs,ys)
     
     print('Equation of Graph is y='+str(m)+'x+'+str(c))

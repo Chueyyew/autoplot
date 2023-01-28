@@ -21,7 +21,7 @@ def readfile(source):
 def readerror(source,mode,xlen=1,ylen=1):
     
     with open(source,newline='') as file:
-        reader = csv.reader(file,delimiter=',')
+        reader = list(csv.reader(file,delimiter=','))
         
         if mode=='multi':
             x=reader[1]

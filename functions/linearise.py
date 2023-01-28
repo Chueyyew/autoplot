@@ -2,6 +2,9 @@ import math
 import scipy as sp
 import numpy as np
 import pandas as pd
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+
 
 def linearise_function(x,y):
     xs,ys=[],[]
@@ -38,6 +41,8 @@ def plot(x,y,xerr,yerr):
     ax.plot(x, ypoints,color='black')
 
     ax.errorbar(x, y, yerr=yerr,xerr=xerr, fmt='none',ecolor='#000000',color='#000000',elinewidth=0.5,capsize=2)
+    
+    fig.suptitle('Title')
     
     ax.text(-1, 0.35, 'y = ' + '{:.5f}'.format(a) + 'x' + ' + {:.5f}'.format(b), size=10)
     ax.set_xlabel("Distance R, r (m)")
